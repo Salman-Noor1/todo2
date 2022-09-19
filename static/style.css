@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aquamarine;
+}
+#card {
+    border-radius: 5px;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(141, 121, 121);
+}
+
+.form {
+    margin: 20px;
+    padding: 5px;
+}
+
+
+li {
+    color: #fff;
+    font-size: larger;
+}
