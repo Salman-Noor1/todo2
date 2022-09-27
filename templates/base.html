@@ -12,8 +12,8 @@
         <h1>My Todo List</h1>
             <form action="" method="post" class="form">
                 {% csrf_token %}
-                <input type="text" name="task">
-                <button>Add the Task</button>
+                {{form.as_p}}
+                <input type="submit" value="Add task">
             </form>
         <ol>
             {% for task in tasks %}

@@ -1,21 +1,25 @@
 from turtle import title
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
+
+from tasks.forms import TaskForm
 from .models import Task
 
 # Create your views here.
 def home(request):
     # retrieves all tasks from the database
     tasks = Task.objects.all()
-    
+    form = TaskForm()
+
+
     if request.method =="POST":
-        data = request.POST
-        task = data.get("task")
-        # add task into the database
-        Task.objects.create(title=task)
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()  
 
     context = {
-        "tasks": tasks
+        "tasks": tasks,
+        "form":form
     }
     return render(request, "base.html", context)
 
